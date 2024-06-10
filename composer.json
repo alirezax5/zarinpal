@@ -1,0 +1,17 @@
+{
+    "name": "alirezax5/zarinpal",
+    "autoload": {
+        "psr-4": {
+            "Alirezax5\\Zarinpal\\": "src/"
+        }, "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "alirezax5",
+            "email": "alirezaaghax6@gmail.com"
+        }
+    ],
+    "require": {}
+}
