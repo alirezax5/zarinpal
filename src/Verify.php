@@ -7,7 +7,7 @@ class Verify
 
     /** @var int */
     private $amount;
-    private $zarinpalUrl = 'https://{node}.zarinpal.com/pg/services/WebGate/wsdl';
+    private $zarinpalUrl = 'https://api.zarinpal.com/pg/v4/payment/verify.json';
     /** @var string */
     /** @var string */
     private $authority;

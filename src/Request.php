@@ -3,6 +3,7 @@
 namespace Alirezax5\Zarinpal;
 
 use Alirezax5\Zarinpal\ErrorMessage;
+
 class Request
 {
     /** @var string */
@@ -22,6 +23,8 @@ class Request
 
     /** @var string */
     private $email;
+    /** @var string */
+    private $metadata = [];
 
     /** @var string */
     private $node;
@@ -33,7 +36,7 @@ class Request
     private $sandBox = false;
 
 
-    public function __construct(string $merchantId, int $amount, $node)
+    public function __construct(string $merchantId, int $amount, $node = 'www')
     {
         $this->merchantId = $merchantId;
         $this->amount = $amount;
@@ -76,6 +79,13 @@ class Request
         return $this;
     }
 
+    public function metadata(array $metadata): self
+    {
+        $this->metadata = $metadata;
+
+        return $this;
+    }
+
 
     public function send()
     {
@@ -84,6 +94,9 @@ class Request
             'Amount' => $this->amount,
             'Description' => $this->description,
             'CallbackURL' => $this->callbackUrl,
+            'Email' => $this->email,
+            'Mobile' => $this->mobile,
+            'AdditionalData' => json_encode($this->metadata),
         ];
         $jsonData = json_encode($data);
         $node = ($this->sandBox == true) ? 'sandbox' : $this->node;

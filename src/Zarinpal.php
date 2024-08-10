@@ -26,12 +26,12 @@ class Zarinpal
         return $this;
     }
 
-    public function request($node = 'ir'): Request
+    public function request($node = 'www'): Request
     {
         return new Request($this->merchantId, $this->amount,$node);
     }
 
-    public function verification($node = 'ir'): Verify
+    public function verification($node = 'www'): Verify
     {
         return new Verify($this->merchantId = $this->merchantId, $this->amount,$node);
     }
